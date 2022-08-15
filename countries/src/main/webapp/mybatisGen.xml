@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="C:/Users/hanzo/.m2/repository/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar" />
+
+	<context id="countries" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/countries?serverTimezone=UTC"
+			userId="root" password="">
+			<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" 
+				userId="root" > -->
+		</jdbcConnection>
+		<javaModelGenerator targetPackage="com.countries.app.pojos"  targetProject="countries">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.countries.app.mappers" targetProject="countries">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.countries.app.mappers" targetProject="countries" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<table tableName="mytable" alias=""
+			domainObjectName="Countries" modelType="flat">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+
+	</context>
+</generatorConfiguration>
